@@ -13,7 +13,9 @@ class MyHTMLParser(HTMLParser):
         self.columncount=0
         self.spin=""
         self.kind=""
+        self.halflife=""
         self.readindata=False
+        self.readinunit=False
         HTMLParser.__init__(self)
     def handle_starttag(self, tag, attrs):
         if tag=="tr":
@@ -32,6 +34,7 @@ class MyHTMLParser(HTMLParser):
         if tag=="td":        
             self.readinelement=False
             self.readindata=False
+            self.readinunit=False
         if tag=="sup":
             self.readinisotope=False
     def handle_data(self, data):
@@ -50,8 +53,56 @@ class MyHTMLParser(HTMLParser):
             if not "<" in data: 
                 if not ">" in data:
                     if not "stabil" in data:
-                        string="<scalar dictRef=\"bo:halfLife\" units=\"siUnits:s\">" + data + "</scalar>"
-                        print(string)
+                        if "·10" in data:
+                            self.halflife=data.replace("·10","")
+                        elif self.readinisotope==True:
+                            self.readinunit=True
+                            self.halflife=str(float(self.halflife.replace(",","."))*10**float(data))
+                        elif self.readinunit==True:
+                            if data.strip()=="s":
+                                pass
+                            if data.strip()=="ms":
+                                self.halflife=str(float(self.halflife)/1000.0)
+                            if data.strip()=="µs":
+                                self.halflife=str(float(self.halflife)/1000.0e3)
+                            if data.strip()=="ns":
+                                self.halflife=str(float(self.halflife)/1000.0e6)
+                            if data.strip()=="ps":
+                                self.halflife=str(float(self.halflife)/1000.0e9)
+                            if data.strip()=="min":
+                                self.halflife=str(float(self.halflife)*60)
+                            if data.strip()=="h":
+                                self.halflife=str(float(self.halflife)*3600)
+                            if data.strip()=="d":
+                                self.halflife=str(float(self.halflife)*3600*24)
+                            if data.strip()=="a":
+                                self.halflife=str(float(self.halflife)*3600*24*365)
+                            string="<scalar dictRef=\"bo:halfLife\" units=\"siUnits:s\">" + self.halflife + "</scalar>"
+                            print(string)
+                        else:
+                            halflife=data.split()
+                            halflife[0]=halflife[0].replace(",",".")
+                            if len(halflife)==2:
+                                if halflife[1].strip()=="s":
+                                    pass
+                                if halflife[1].strip()=="ms":
+                                    halflife[0]=str(float(halflife[0])/1000.0)
+                                if halflife[1].strip()=="µs":
+                                    halflife[0]=str(float(halflife[0])/1000.0e3)
+                                if halflife[1].strip()=="ns":
+                                    halflife[0]=str(float(halflife[0])/1000.0e6)
+                                if halflife[1].strip()=="ps":
+                                    halflife[0]=str(float(halflife[0])/1000.0e9)
+                                if halflife[1].strip()=="min":
+                                    halflife[0]=str(float(halflife[0])*60)
+                                if halflife[1].strip()=="h":
+                                    halflife[0]=str(float(halflife[0])*3600)
+                                if halflife[1].strip()=="d":
+                                    halflife[0]=str(float(halflife[0])*3600*24)
+                                if halflife[1].strip()=="a":
+                                    halflife[0]=str(float(halflife[0])*3600*24*365)
+                                string="<scalar dictRef=\"bo:halfLife\" units=\"siUnits:s\">" + halflife[0] + "</scalar>"
+                                print(string)
                     else:
                         self.readindata=False
                 else:
