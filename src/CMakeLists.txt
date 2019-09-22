@@ -10,6 +10,8 @@ include_directories(
    ${CMAKE_CURRENT_SOURCE_DIR}
    )
 
+ecm_setup_version(${KDE_APPLICATIONS_VERSION} VARIABLE_PREFIX KALZIUM VERSION_HEADER kalzium_version.h)
+
 ########### next target ###############
 
 # The tools can only be built when OpenBabel2 is found.
@@ -23,7 +25,7 @@ if (OPENBABEL2_FOUND)
    ki18n_wrap_ui(kalziumtools_SRCS
       tools/obconverterwidget.ui
       )
-   include_directories(${OPENBABEL2_INCLUDE_DIR})
+   include_directories(SYSTEM ${OPENBABEL2_INCLUDE_DIR})
 
    if (EIGEN3_FOUND AND AvogadroLibs_FOUND)
 
