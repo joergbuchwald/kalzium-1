@@ -159,6 +159,60 @@ class MyHTMLParser(HTMLParser):
                             print(string)
                         string="<scalar dictRef=\"bo:betaplusDecayLikeliness\" units=\"bo:percentage\">100.0</scalar>"
                         print(string)
+                    if "α" in kind[0]:
+                        if self.multipledecay==1:
+                            string="<scalar dictRef=\"bo:alphaDecay\">" + self.decayenergy + "</scalar>"
+                            print(string)
+                        string="<scalar dictRef=\"bo:alphaDecayLikeliness\" units=\"bo:percentage\">100.0</scalar>"
+                        print(string)
+                    if "β−n" in kind[0]:
+                        if self.multipledecay==1:
+                            string="<scalar dictRef=\"bo:betaminusneutronDecay\">" + self.decayenergy + "</scalar>"
+                            print(string)
+                        string="<scalar dictRef=\"bo:betaminusneutronDecayLikeliness\" units=\"bo:percentage\">100.0</scalar>"
+                        print(string)
+                    if "β−α" in kind[0]:
+                        if self.multipledecay==1:
+                            string="<scalar dictRef=\"bo:betaminualphasDecay\">" + self.decayenergy + "</scalar>"
+                            print(string)
+                        string="<scalar dictRef=\"bo:betaminusalphaDecayLikeliness\" units=\"bo:percentage\">100.0</scalar>"
+                        print(string)
+                    if "β+p" in kind[0]:
+                        if self.multipledecay==1:
+                            string="<scalar dictRef=\"bo:betaplusprotonDecay\">" + self.decayenergy + "</scalar>"
+                            print(string)
+                        string="<scalar dictRef=\"bo:betaplusprotonDecayLikeliness\" units=\"bo:percentage\">100.0</scalar>"
+                        print(string)
+                    if "β+α" in kind[0]:
+                        if self.multipledecay==1:
+                            string="<scalar dictRef=\"bo:betaplusalphaDecay\">" + self.decayenergy + "</scalar>"
+                            print(string)
+                        string="<scalar dictRef=\"bo:betaplusalphaDecayLikeliness\" units=\"bo:percentage\">100.0</scalar>"
+                        print(string)
+                    if "αβ−" in kind[0]:
+                        if self.multipledecay==1:
+                            string="<scalar dictRef=\"bo:alphabetaminusDecay\">" + self.decayenergy + "</scalar>"
+                            print(string)
+                        string="<scalar dictRef=\"bo:alphabetaminusDecayLikeliness\" units=\"bo:percentage\">100.0</scalar>"
+                        print(string)
+                    if "pα" in kind[0]:
+                        if self.multipledecay==1:
+                            string="<scalar dictRef=\"bo:protonalphaDecay\">" + self.decayenergy + "</scalar>"
+                            print(string)
+                        string="<scalar dictRef=\"bo:protonalphaDecayLikeliness\" units=\"bo:percentage\">100.0</scalar>"
+                        print(string)
+                    if "εp" in kind[0]:
+                        if self.multipledecay==1:
+                            string="<scalar dictRef=\"bo:ecprotonDecay\">" + self.decayenergy + "</scalar>"
+                            print(string)
+                        string="<scalar dictRef=\"bo:ecprotonDecayLikeliness\" units=\"bo:percentage\">100.0</scalar>"
+                        print(string)
+                    if "εα" in kind[0]:
+                        if self.multipledecay==1:
+                            string="<scalar dictRef=\"bo:ecalphaDecay\">" + self.decayenergy + "</scalar>"
+                            print(string)
+                        string="<scalar dictRef=\"bo:ecalphaDecayLikeliness\" units=\"bo:percentage\">100.0</scalar>"
+                        print(string)
             else:
                 for item in kind:
                     it=item.split(" = ")
@@ -189,6 +243,34 @@ class MyHTMLParser(HTMLParser):
                             if "β−n" == it[0]:
                                 print("<scalar dictRef=\"bo:betaminusneutronDecay\"></scalar>")
                                 print("<scalar dictRef=\"bo:betaminusneutronDecayLikeliness\ units=\"bo:percentage\">" + it[1] +
+                                        "</scalar>")
+                            if "β−α" == it[0]:
+                                print("<scalar dictRef=\"bo:betaminusalphaDecay\"></scalar>")
+                                print("<scalar dictRef=\"bo:betaminusalphaDecayLikeliness\ units=\"bo:percentage\">" + it[1] +
+                                        "</scalar>")
+                            if "β+p" == it[0]:
+                                print("<scalar dictRef=\"bo:betaplusprotonDecay\"></scalar>")
+                                print("<scalar dictRef=\"bo:betaplusprotonDecayLikeliness\ units=\"bo:percentage\">" + it[1] +
+                                        "</scalar>")
+                            if "β+α" == it[0]:
+                                print("<scalar dictRef=\"bo:betaplusalphaDecay\"></scalar>")
+                                print("<scalar dictRef=\"bo:betaplusalphaDecayLikeliness\ units=\"bo:percentage\">" + it[1] +
+                                        "</scalar>")
+                            if "αβ−" == it[0]:
+                                print("<scalar dictRef=\"bo:alphabetaminusDecay\"></scalar>")
+                                print("<scalar dictRef=\"bo:alphabetaminusDecayLikeliness\ units=\"bo:percentage\">" + it[1] +
+                                        "</scalar>")
+                            if "pα" == it[0]:
+                                print("<scalar dictRef=\"bo:protonalphaDecay\"></scalar>")
+                                print("<scalar dictRef=\"bo:protonalphaDecayLikeliness\ units=\"bo:percentage\">" + it[1] +
+                                        "</scalar>")
+                            if "εp" == it[0]:
+                                print("<scalar dictRef=\"bo:ecprotonDecay\"></scalar>")
+                                print("<scalar dictRef=\"bo:ecprotonDecayLikeliness\ units=\"bo:percentage\">" + it[1] +
+                                        "</scalar>")
+                            if "εα" == it[0]:
+                                print("<scalar dictRef=\"bo:ecalphaDecay\"></scalar>")
+                                print("<scalar dictRef=\"bo:ecalphaDecayLikeliness\ units=\"bo:percentage\">" + it[1] +
                                         "</scalar>")
 if __name__=='__main__':
     file="4_Periode.html"
