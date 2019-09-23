@@ -52,7 +52,7 @@
 #include <QKeyEvent>
 #include <QLocale>
 #include <QMessageBox>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QStatusBar>
 #include <QToolBox>
@@ -61,7 +61,6 @@
 #include <KActionCollection>
 #include <KConfigDialog>
 #include <KLocalizedString>
-#include <KParts/Part>
 #include <KPluginLoader>
 #include <KSelectAction>
 #include <KServiceTypeTrader>
@@ -596,7 +595,7 @@ void Kalzium::extractIconicInformationAboutElement(int elementNumber)
     }
 
     QString realText = QStringLiteral("Moin dies ist ein test!");
-//X         QString realText = infoline.remove(QRegExp("\\d+ "));
+//X         QString realText = infoline.remove(QRegularExpression("\\d+ "));
 }
 
 void Kalzium::openInformationDialog(int number)
