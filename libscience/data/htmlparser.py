@@ -60,7 +60,7 @@ class MyHTMLParser(HTMLParser):
                             self.halflife=data.replace("·10","")
                         elif self.readinisotope==True:
                             self.readinunit=True
-                            self.halflife=str(float(self.halflife.replace(",","."))*10**float(data))
+                            self.halflife=str(float(self.halflife.replace(",","."))*10**float(data.replace("−","-")))
                         elif self.readinunit==True:
                             if data.strip()=="s":
                                 pass
@@ -407,7 +407,7 @@ class MyHTMLParser(HTMLParser):
                                 print("<scalar dictRef=\"bo:ecalphaprotonDecayLikeliness\ units=\"bo:percentage\">" + it[1] +
                                         "</scalar>")
 if __name__=='__main__':
-    file="4_Periode.html"
+    file="7_Periode.html"
     datei=open(file,"r")
     html=datei.read()
     parser = MyHTMLParser()
