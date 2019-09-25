@@ -46,6 +46,8 @@ class MyHTMLParser(HTMLParser):
         if self.readinisotope==False and self.readinelement==True:
             if self.element!=data:
                 self.element=data
+                if self.element != "H":
+                    print("</isotopeList>")
                 string="<isotopeList id=\""+ self.element+ "\">"
                 print(string)
             self.decayenergy=""
@@ -445,8 +447,9 @@ class MyHTMLParser(HTMLParser):
                                 print("<scalar dictRef=\"bo:ecalphaprotonDecay\"></scalar>")
                                 print("<scalar dictRef=\"bo:ecalphaprotonDecayLikeliness\" units=\"bo:percentage\">" + it[1] +
                                         "</scalar>")
+            print("</isotope>")
 if __name__=='__main__':
-    file="2_Periode.html"
+    file="1_Periode.html"
     datei=open(file,"r")
     html=datei.read()
     parser = MyHTMLParser()
