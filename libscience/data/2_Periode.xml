@@ -1,3 +1,4 @@
+</isotopeList>
 <isotopeList id="Li">
 
 <isotope id="Li4" number="4" elementType="Li">
@@ -87,6 +88,7 @@
 
 <isotope id="Li13" number="13" elementType="Li">
 </isotope>
+</isotopeList>
 <isotopeList id="Be">
 
 <isotope id="Be5" number="5" elementType="Be">
@@ -174,6 +176,7 @@
 <isotope id="Be16" number="16" elementType="Be">
 <scalar dictRef="bo:spin">0+</scalar>
 </isotope>
+</isotopeList>
 <isotopeList id="B">
 
 <isotope id="B6" number="6" elementType="B">
@@ -272,6 +275,7 @@
 
 <isotope id="B21" number="21" elementType="B">
 </isotope>
+</isotopeList>
 <isotopeList id="C">
 
 <isotope id="C8" number="8" elementType="C">
@@ -311,9 +315,6 @@
 
 <isotope id="C12" number="12" elementType="C">
 <scalar dictRef="bo:spin">0+</scalar>
-</isotope>
-</isotope>
-</isotope>
 </isotope>
 
 <isotope id="C13" number="13" elementType="C">
@@ -395,6 +396,7 @@
 
 <isotope id="C23" number="23" elementType="C">
 </isotope>
+</isotopeList>
 <isotopeList id="N">
 
 <isotope id="N10" number="10" elementType="N">
@@ -531,6 +533,7 @@
 <scalar dictRef="bo:neutronDecay">0.973</scalar>
 <scalar dictRef="bo:neutronDecayLikeliness" units="bo:percentage">100.0</scalar>
 </isotope>
+</isotopeList>
 <isotopeList id="O">
 
 <isotope id="O12" number="12" elementType="O">
@@ -645,6 +648,7 @@
 <scalar dictRef="bo:2neutronDecay">1.202</scalar>
 <scalar dictRef="bo:2neutronDecayLikeliness" units="bo:percentage">100.0</scalar>
 </isotope>
+</isotopeList>
 <isotopeList id="F">
 
 <isotope id="F14" number="14" elementType="F">
@@ -813,6 +817,7 @@
 
 <isotope id="F31" number="31" elementType="F">
 </isotope>
+</isotopeList>
 <isotopeList id="Ne">
 
 <isotope id="Ne16" number="16" elementType="Ne">

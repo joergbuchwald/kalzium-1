@@ -1,3 +1,4 @@
+</isotopeList>
 <isotopeList id="Na">
 
 <isotope id="Na18" number="18" elementType="Na">
@@ -171,6 +172,7 @@
 <isotope id="Na37" number="37" elementType="Na">
 <scalar dictRef="bo:spin">3/2+</scalar>
 </isotope>
+</isotopeList>
 <isotopeList id="Mg">
 
 <isotope id="Mg19" number="19" elementType="Mg">
@@ -333,6 +335,7 @@
 <scalar dictRef="bo:halfLife" units="siUnits:s">0.001</scalar>
 <scalar dictRef="bo:spin">0+</scalar>
 </isotope>
+</isotopeList>
 <isotopeList id="Al">
 
 <isotope id="Al21" number="21" elementType="Al">
@@ -516,6 +519,7 @@
 
 <isotope id="Al43" number="43" elementType="Al">
 </isotope>
+</isotopeList>
 <isotopeList id="Si">
 
 <isotope id="Si22" number="22" elementType="Si">
@@ -663,6 +667,7 @@
 
 <isotope id="Si45" number="45" elementType="Si">
 </isotope>
+</isotopeList>
 <isotopeList id="P">
 
 <isotope id="P24" number="24" elementType="P">
@@ -836,6 +841,7 @@
 
 <isotope id="P47" number="47" elementType="P">
 </isotope>
+</isotopeList>
 <isotopeList id="S">
 
 <isotope id="S26" number="26" elementType="S">
@@ -1007,6 +1013,7 @@
 <scalar dictRef="bo:neutronDecay">0.36802</scalar>
 <scalar dictRef="bo:neutronDecayLikeliness" units="bo:percentage">100.0</scalar>
 </isotope>
+</isotopeList>
 <isotopeList id="Cl">
 
 <isotope id="Cl28" number="28" elementType="Cl">
@@ -1182,6 +1189,7 @@
 <scalar dictRef="bo:betaminusDecay">20.344</scalar>
 <scalar dictRef="bo:betaminusDecayLikeliness" units="bo:percentage">100.0</scalar>
 </isotope>
+</isotopeList>
 <isotopeList id="Ar">
 
 <isotope id="Ar30" number="30" elementType="Ar">

@@ -15,6 +15,7 @@ class MyHTMLParser(HTMLParser):
         self.spin=""
         self.kind=""
         self.halflife=""
+        self.masscolumn=7
         self.readindata=False
         self.readinunit=False
         HTMLParser.__init__(self)
@@ -50,6 +51,10 @@ class MyHTMLParser(HTMLParser):
                     print("</isotopeList>")
                 string="<isotopeList id=\""+ self.element+ "\">"
                 print(string)
+                if self.element=="Tc" or self.element=="Po" or self.element=="Fr" or self.element=="Pm" or self.element=="Pa" or self.element=="Np" or self.element=="Am":
+                    self.masscolumn=6
+                if self.element=="Ru" or self.element=="Sm" or self.element=="Th" or self.element=="U" or self.element=="Pu":
+                    self.masscolumn=7
             self.decayenergy=""
             self.kind=""
             string="\n<isotope id=\""+ self.element+ self.isotope+ "\" number=\""+  self.isotope + "\" elementType=\"" + self.element + "\">"
@@ -127,7 +132,7 @@ class MyHTMLParser(HTMLParser):
             decayenergy[0]=decayenergy[0].replace(",",".")
             self.decayenergy=decayenergy[0]
             self.kind+=data
-        if self.readindata==True and self.columncount==7:
+        if self.readindata==True and self.columncount==self.masscolumn:
             kind=self.kind.split(", ")
             if len(kind) == 1 and not "=" in kind[0]:
                 kind[0]=kind[0].replace(" ","")
@@ -367,6 +372,10 @@ class MyHTMLParser(HTMLParser):
                                 print("<scalar dictRef=\"bo:2betaplusDecay\"></scalar>")
                                 print("<scalar dictRef=\"bo:2betaplusDecayLikeliness\" units=\"bo:percentage\">" + it[1] +
                                          "</scalar>")
+                            if "α" == it[0]:
+                                print("<scalar dictRef=\"bo:alphaDecay\"></scalar>")
+                                print("<scalar dictRef=\"bo:2betaplusDecayLikeliness\" units=\"bo:percentage\">" + it[1] +
+                                        "</scalar>")
                             if "β−n" == it[0]:
                                 print("<scalar dictRef=\"bo:betaminusneutronDecay\"></scalar>")
                                 print("<scalar dictRef=\"bo:betaminusneutronDecayLikeliness\" units=\"bo:percentage\">" + it[1] +
@@ -449,7 +458,7 @@ class MyHTMLParser(HTMLParser):
                                         "</scalar>")
             print("</isotope>")
 if __name__=='__main__':
-    file="1_Periode.html"
+    file="5_Periode.html"
     datei=open(file,"r")
     html=datei.read()
     parser = MyHTMLParser()
