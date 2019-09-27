@@ -1,3 +1,4 @@
+<root>
 <isotopeList id="H">
 
 <isotope id="H1" number="1" elementType="H">
@@ -20730,3 +20731,4 @@
 <isotope id="Og294" number="294" elementType="Og">
 <scalar dictRef="bo:halfLife" units="siUnits:s">0.0008900000000000001</scalar>
 <scalar dictRef="bo:spin">0+</scalar>
+</root>
